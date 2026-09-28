@@ -1,0 +1,2 @@
+library use kiya 
+pip install fastapi uvicorn pandas scikit-learn python-dotenv requests
