@@ -1,6 +1,9 @@
-# MovieFlix — Movie Recommendation System
+# Movie recommender — Movie Recommendation System
 
-Netflix-style movie recommendation web app.
+Netmirror - style movie recommendation web app.
+
+## Live Demo
+-website - http://movie-recommenderk01.netlify.app
 
 ## Stack
 - Backend: Python + FastAPI
