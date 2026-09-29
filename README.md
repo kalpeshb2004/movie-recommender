@@ -3,7 +3,7 @@
 Netmirror - style movie recommendation web app.
 
 ## Live Demo
--website - https://tera-naam.netlify.app
+-website - http://movie-recommenderk01.netlify.app
 
 ## Stack
 - Backend: Python + FastAPI
