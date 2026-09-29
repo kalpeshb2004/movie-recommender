@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://movie-recommender-api-cutb.onrender.com";
 
 function getParam(name) {
   return new URLSearchParams(location.search).get(name);
