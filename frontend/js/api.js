@@ -21,3 +21,8 @@ function posterCard(movie) {
       <div class="title">${movie.title}</div>
     </div>`;
 }
+
+function showError(elementId, msg = "Something went wrong. Try again.") {
+  const el = document.getElementById(elementId);
+  if (el) el.innerHTML = `<p style="color:#999;padding:20px;">${msg}</p>`;
+}
