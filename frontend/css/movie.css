@@ -1,0 +1,27 @@
+.backdrop {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.backdrop::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #141414, transparent 60%);
+}
+.movie-detail {
+  display: flex;
+  gap: 24px;
+  padding: 0 40px;
+  margin-top: -100px;
+  position: relative;
+  z-index: 1;
+}
+.movie-detail img { width: 220px; border-radius: 6px; }
+.movie-info h1 { font-size: 32px; margin-bottom: 8px; }
+.movie-info .meta { color: #aaa; margin-bottom: 12px; }
+.movie-info p { max-width: 600px; line-height: 1.5; margin-bottom: 10px; }
+.trailer-link {
+  display: inline-block; background: #e50914; color: #fff;
+  padding: 8px 16px; border-radius: 4px; text-decoration: none; margin-top: 8px;
+}

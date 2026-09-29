@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Movie - MovieFlix</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/movie.css">
+<style>.navbar { position: static; background: #141414; }</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">MOVIEFLIX</a>
+  <form id="search-form">
+    <input id="search-input" type="text" placeholder="Search movies...">
+  </form>
+  <div>
+    <a href="watchlist.html" class="nav-link">Watchlist</a>
+    <a href="login.html" class="nav-link">Login</a>
+  </div>
+</nav>
+
+<div class="backdrop" id="backdrop"></div>
+
+<div class="movie-detail">
+  <img id="poster" src="" alt="poster">
+  <div class="movie-info">
+    <h1 id="title">Loading...</h1>
+    <div class="meta" id="meta"></div>
+    <p id="overview"></p>
+    <p id="cast"></p>
+    <p id="director"></p>
+    <a class="trailer-link" id="trailer-search" target="_blank">▶ Search Trailer</a>
+  </div>
+</div>
+
+<div class="row">
+  <h2>More Like This</h2>
+  <div class="row-items" id="similar-row"></div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/movie.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Search - MovieFlix</title>
+<link rel="stylesheet" href="css/style.css">
+<style>.navbar { position: static; background: #141414; }</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo">MOVIEFLIX</a>
+  <form id="search-form">
+    <input id="search-input" type="text" placeholder="Search movies...">
+  </form>
+  <div>
+    <a href="watchlist.html" class="nav-link">Watchlist</a>
+    <a href="login.html" class="nav-link">Login</a>
+  </div>
+</nav>
+
+<div class="row" style="margin-top: 90px;">
+  <h2 id="search-title">Results</h2>
+  <div class="row-items" id="search-results" style="flex-wrap: wrap;"></div>
+</div>
+
+<div class="row">
+  <h2 id="because-title"></h2>
+  <div class="row-items" id="because-row"></div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

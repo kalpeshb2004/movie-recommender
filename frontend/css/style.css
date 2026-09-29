@@ -1,0 +1,101 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #141414;
+  color: #fff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  z-index: 100;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  transition: background 0.3s;
+}
+.navbar.scrolled { background: #141414; }
+.navbar .logo { color: #e50914; font-size: 24px; font-weight: bold; text-decoration: none; }
+.navbar input {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #777;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: 240px;
+}
+.navbar a.nav-link { color: #fff; text-decoration: none; margin-left: 20px; }
+
+/* Hero */
+.hero {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #141414, transparent 50%);
+}
+.hero-info { position: relative; z-index: 1; max-width: 500px; }
+.hero-info h1 { font-size: 42px; margin-bottom: 10px; }
+.hero-info p { font-size: 14px; color: #ccc; margin-bottom: 16px; }
+.btn {
+  background: #fff; color: #000; border: none;
+  padding: 10px 24px; margin-right: 10px;
+  border-radius: 4px; cursor: pointer; font-weight: bold;
+}
+.btn.secondary { background: rgba(109,109,110,0.7); color: #fff; }
+
+/* Rows */
+.row { margin: 30px 0 0 40px; }
+.row h2 { font-size: 20px; margin-bottom: 10px; }
+.row-items { display: flex; gap: 8px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 10px; }
+.row-items::-webkit-scrollbar { height: 6px; }
+.row-items::-webkit-scrollbar-thumb { background: #444; }
+
+/* Card */
+.card {
+  min-width: 180px;
+  cursor: pointer;
+  transition: transform 0.25s;
+  position: relative;
+}
+.card:hover { transform: scale(1.08); z-index: 2; }
+.card img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  background: #222;
+}
+.card .rating {
+  position: absolute; top: 6px; right: 6px;
+  background: rgba(0,0,0,0.8);
+  color: #46d369;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.card .title {
+  font-size: 13px;
+  margin-top: 4px;
+  color: #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.placeholder-poster {
+  width: 100%; aspect-ratio: 2/3;
+  background: linear-gradient(135deg, #333, #1a1a1a);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; font-size: 13px; color: #999; padding: 8px;
+  border-radius: 4px;
+}
