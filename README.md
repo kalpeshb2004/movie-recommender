@@ -1,4 +1,4 @@
-# Movie recommeder — Movie Recommendation System
+# Movie recommender — Movie Recommendation System
 
 Netmirror - style movie recommendation web app.
 
