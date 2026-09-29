@@ -25,3 +25,16 @@
   display: inline-block; background: #e50914; color: #fff;
   padding: 8px 16px; border-radius: 4px; text-decoration: none; margin-top: 8px;
 }
+@media (max-width: 768px) {
+  .backdrop { height: 30vh; }
+  .movie-detail {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -60px;
+    padding: 0 16px;
+  }
+  .movie-detail img { width: 160px; margin-bottom: 12px; }
+  .movie-info h1 { font-size: 22px; }
+  .movie-info p { max-width: 100%; font-size: 14px; }
+}
