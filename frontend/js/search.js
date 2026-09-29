@@ -1,6 +1,3 @@
-function getParam(name) {
-  return new URLSearchParams(location.search).get(name);
-}
 
 async function loadSearch() {
   const q = getParam("q") || "";

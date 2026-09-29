@@ -16,6 +16,17 @@ async function loadMovie() {
     document.getElementById("trailer-search").href =
       `https://www.youtube.com/results?search_query=${encodeURIComponent(m.title + " trailer")}`;
 
+    document.getElementById("watchlist-btn")?.addEventListener("click", async () => {
+        const token = getToken();
+        const id = getParam("id");
+        if (!token) { location.href = "login.html"; return; }
+        await fetch(`${BASE_URL}/watchlist/${id}`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        document.getElementById("watchlist-btn").textContent = "✓ Added to Watchlist";
+    });
+
     const similar = await apiGet(`/movies/${id}/recommend?limit=10`);
     document.getElementById("similar-row").innerHTML = similar.map(posterCard).join("");
   } catch (e) {

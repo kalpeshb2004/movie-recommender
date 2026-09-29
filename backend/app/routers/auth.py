@@ -1,10 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, Header
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 from ..database import get_db
 from ..schemas import LoginIn, SignupIn
 from ..services.auth_utils import create_token, decode_token, hash_password, verify_password
 
 router = APIRouter(prefix="/auth", tags=["auth"])
+security = HTTPBearer()
 
 
 @router.post("/signup")
@@ -37,11 +39,8 @@ def login(body: LoginIn, db=Depends(get_db)):
     return {"token": token, "username": row["username"]}
 
 
-def get_current_user(authorization: str = Header(None)) -> int:
-    if not authorization or not authorization.startswith("Bearer "):
-        raise HTTPException(status_code=401, detail="Not authenticated")
-    token = authorization.split(" ", 1)[1]
+def get_current_user(creds: HTTPAuthorizationCredentials = Depends(security)) -> int:
     try:
-        return decode_token(token)
+        return decode_token(creds.credentials)
     except Exception:
         raise HTTPException(status_code=401, detail="Invalid or expired token")

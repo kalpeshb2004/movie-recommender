@@ -64,10 +64,19 @@ body {
 
 /* Card */
 .card {
+  width: 180px;
   min-width: 180px;
   cursor: pointer;
   transition: transform 0.25s;
   position: relative;
+}
+.card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  background: #222;
 }
 .card:hover { transform: scale(1.08); z-index: 2; }
 .card img {
