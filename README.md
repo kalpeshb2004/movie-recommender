@@ -1,7 +1,5 @@
-# Movie recommender — Movie Recommendation System
-
 # MOVIEMATE
-
+#Movie recommendation System
 ## Live Demo
 -website - http://movie-recommenderk01.netlify.app
 
