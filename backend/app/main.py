@@ -1,5 +1,8 @@
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from .routers import auth, history, movies, recommend, watchlist
 from .services.recommender import build_model
@@ -25,6 +28,6 @@ def startup():
     build_model()
 
 
-@app.get("/")
-def root():
-    return {"status": "ok"}
+# sabse last me, routers ke baad
+FRONTEND_DIR = Path(__file__).resolve().parents[2] / "frontend"
+app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
