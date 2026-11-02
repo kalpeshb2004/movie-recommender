@@ -1,6 +1,6 @@
 # Movie recommender — Movie Recommendation System
 
-Netmirror - style movie recommendation web app.
+# MOVIEMATE
 
 ## Live Demo
 -website - http://movie-recommenderk01.netlify.app
@@ -28,4 +28,6 @@ Netmirror - style movie recommendation web app.
 6. `cd backend && uvicorn app.main:app --reload`
 7. Open `frontend/index.html` via Live Server
 
-This product uses the TMDB API but is not endorsed or certified by TMDB.
+## ScreenShot
+![Landing page](screenshots/main.png)
+![suggestion page](screenshots/suggest_page.png)
