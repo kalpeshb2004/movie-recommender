@@ -2,6 +2,7 @@ async function loadMovie() {
   const id = getParam("id");
   try {
     const m = await apiGet(`/movies/${id}`);
+    apiAuth(`/history/${id}`, "POST");
 
     document.getElementById("backdrop").style.backgroundImage =
       `url('${m.backdrop_url || m.poster_url || ""}')`;

@@ -26,3 +26,17 @@ function showError(elementId, msg = "Something went wrong. Try again.") {
   const el = document.getElementById(elementId);
   if (el) el.innerHTML = `<p style="color:#999;padding:20px;">${msg}</p>`;
 }
+
+async function apiAuth(path, method = "GET") {
+  const token = getToken();
+  if (!token) return null;
+  try {
+    const res = await fetch(`${BASE_URL}${path}`, {
+      method,
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return res.ok ? await res.json() : null;
+  } catch (e) {
+    return null;
+  }
+}

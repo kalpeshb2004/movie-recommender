@@ -19,6 +19,19 @@ async function loadHome() {
     document.getElementById("top-rated-row").innerHTML =
       topRated.map(posterCard).join("");
 
+    const mine = await apiAuth("/me/recommendations?limit=20");
+    if (mine && mine.length) {
+      const row = document.createElement("div");
+      row.className = "row";
+      const h = document.createElement("h2");
+      h.textContent = "Recommended for you";
+      const items = document.createElement("div");
+      items.className = "row-items";
+      items.innerHTML = mine.map(posterCard).join("");
+      row.append(h, items);
+      document.getElementById("hero").after(row);
+    }
+
     const genres = ["Action", "Comedy", "Horror", "Romance"];
     for (const g of genres) {
       const movies = await apiGet(`/movies/genre/${g}?limit=20`);

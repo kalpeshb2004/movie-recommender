@@ -1,4 +1,5 @@
 import sqlite3
+import numpy as np
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -41,3 +42,21 @@ def get_similar(movie_id: int, top_n: int = 10):
     scores.sort(key=lambda x: x[1], reverse=True)
     top = [s for s in scores if s[0] != idx][:top_n]
     return [_movie_ids[i] for i, _ in top]
+
+def get_similar_for_many(weights: dict, top_n: int = 20):
+    """weights = {movie_id: weight}. Un sab se milti-julti movies, unhe chhodke."""
+    if _sim_matrix is None:
+        build_model()
+    pos = {m: i for i, m in enumerate(_movie_ids)}
+    idxs, w = [], []
+    for mid, wt in weights.items():
+        if mid in pos:
+            idxs.append(pos[mid])
+            w.append(wt)
+    if not idxs:
+        return []
+    w = np.array(w)
+    scores = (_sim_matrix[idxs] * w[:, None]).sum(axis=0) / w.sum()
+    scores[idxs] = -1
+    top = np.argsort(scores)[::-1][:top_n]
+    return [_movie_ids[i] for i in top]

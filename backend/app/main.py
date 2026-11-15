@@ -21,6 +21,7 @@ app.include_router(recommend.router)
 app.include_router(auth.router)
 app.include_router(watchlist.router)
 app.include_router(history.router)
+app.include_router(recommend.personal_router)
 
 
 @app.on_event("startup")

@@ -11,6 +11,7 @@ async function loadSearch() {
 
     if (results.length) {
       const top = results[0];
+      apiAuth(`/history/${top.id}`, "POST");
       const similar = await apiGet(`/movies/${top.id}/recommend?limit=10`);
       document.getElementById("because-title").textContent =
         `Because you searched "${top.title}"`;
