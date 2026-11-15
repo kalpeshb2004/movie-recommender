@@ -27,5 +27,5 @@
 7. Open `frontend/index.html` via Live Server
 
 ## ScreenShot
-![Landing page](screenshots/main.png)
+![Landing page](screenshots/main_page.png)
 ![suggestion page](screenshots/suggest_page.png)
