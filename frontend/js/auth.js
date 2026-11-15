@@ -17,10 +17,13 @@ function updateNavAuth() {
   const username = localStorage.getItem("username");
   if (!username || !getToken()) return;
 
-  document.querySelectorAll('a[href^="login.html"]').forEach((link) => {
+  document.querySelectorAll(".navbar a").forEach((link) => {
+    const href = link.getAttribute("href") || "";
     if (link.classList.contains("logo")) return;
+    if (!/login/.test(href)) return;
+
     link.textContent = `👤 ${username} (Logout)`;
-    link.href = "#";
+    link.setAttribute("href", "#");
     link.onclick = (e) => {
       e.preventDefault();
       logout();
