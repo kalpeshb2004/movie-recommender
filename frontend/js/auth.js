@@ -30,7 +30,13 @@ function updateNavAuth() {
     };
   });
 }
-document.addEventListener("DOMContentLoaded", updateNavAuth);
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", updateNavAuth);
+} else {
+  updateNavAuth();
+}
+window.addEventListener("pageshow", updateNavAuth);
 
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
