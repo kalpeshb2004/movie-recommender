@@ -1,24 +1,31 @@
 function saveAuth(token, username) {
-  sessionStorage.setItem("token", token);
-  sessionStorage.setItem("username", username);
+  localStorage.setItem("token", token);
+  localStorage.setItem("username", username);
 }
 
 function getToken() {
-  return sessionStorage.getItem("token");
+  return localStorage.getItem("token");
+}
+
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("username");
+  location.href = "index.html";
 }
 
 function updateNavAuth() {
-  const username = sessionStorage.getItem("username");
-  const loginLink = document.querySelector('a[href="login.html"]');
-  if (username && loginLink) {
-    loginLink.textContent = `${username} (Logout)`;
-    loginLink.href = "#";
-    loginLink.onclick = (e) => {
+  const username = localStorage.getItem("username");
+  if (!username || !getToken()) return;
+
+  document.querySelectorAll('a[href^="login.html"]').forEach((link) => {
+    if (link.classList.contains("logo")) return;
+    link.textContent = `👤 ${username} (Logout)`;
+    link.href = "#";
+    link.onclick = (e) => {
       e.preventDefault();
-      sessionStorage.clear();
-      location.href = "index.html";
+      logout();
     };
-  }
+  });
 }
 document.addEventListener("DOMContentLoaded", updateNavAuth);
 
